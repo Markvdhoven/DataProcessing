@@ -32,41 +32,63 @@ def extract_tvseries(dom):
     # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
     # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
 
+    # create list to stall all movies in
     list_of_movies = []
-    soup = BeautifulSoup(html, 'html.parser')
-    movies = soup.find_all("div", class_="lister-item-content")
-    movie_list = []
 
+    # make a soup of the imdb html
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # get all needed soups    
+    movies = soup.find_all("div", class_="lister-item-content")
     movie = soup.find_all("h3", class_="lister-item-header")
     genre = soup.find_all("span", class_="genre")
     actors = soup.select('a[href*="adv_li_st_"]')
     runtime = soup.find_all("span", class_="runtime")
     rating = soup.find_all("div", class_="inline-block ratings-imdb-rating")
-    actorcount = 0
-    print(rating[0].strong.string)
-    # print(movie)
-    
 
+    # start a count for actors
+    actorcount = 0
+
+    # loop over all movies
     for i in range(50):
+        
+        # create list to stall movie information
         movie_list = []
+
+        # create string to add in movie actors
         actorr = ""
+
+        # add movie to list
         movie_list.append(movie[i].find("a").string)
+
+        # add rating to list
         movie_list.append(rating[i].strong.string)
+
+        # add genre to list
         movie_list.append(genre[i].string.strip())
-        print(rating[i].string)
+        
+        # iterate over first 3 actors
         for j in range(actorcount, actorcount + 3):
+
+            # add each actor to the actor string plus a comma
             actorr += (actors[j].string) + ", "
 
+        # add last actor to string without a comma
         actorr += actors[actorcount + 3].string
+
+        # add string of actors to list
         movie_list.append(actorr)
-        actorcount += 4            
-        list_of_movies.append(movie_list)
+
+        # go to next four actors for next movie
+        actorcount += 4
+
+        # add movie runtime to list
         movie_list.append((runtime[i].string).strip(' min'))
 
-        
-    print(list_of_movies[0][0])
+        # add list with movie information to list of movies
+        list_of_movies.append(movie_list)
     
-    return list_of_movies   # REPLACE THIS LINE AS WELL AS APPROPRIATE
+    return list_of_movies
 
 
 def save_csv(outfile, tvseries):
@@ -74,11 +96,13 @@ def save_csv(outfile, tvseries):
     Output a CSV file containing highest rated TV-series.
     """
     writer = csv.writer(outfile)
+
+    # write top of columns
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
+
+    # write all columns for each movie
     for i in range(50):
             writer.writerow([tvseries[i][0], tvseries[i][1], tvseries[i][2], tvseries[i][3], tvseries[i][4]]) 
-
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
 
 
 def simple_get(url):
