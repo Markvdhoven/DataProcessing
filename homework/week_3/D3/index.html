@@ -58,17 +58,17 @@
             // create tooltip for hoovering
             // http://bl.ocks.org/Caged/6476579
             var tip = d3.tip()
-                .attr('class', 'd3-tip')
-                .offset([10, 50])
-                .html( function(d) {
-                  return "<strong>Jaar:</strong> <span style='color:red'>" + d["Perioden"] + "\n" + "</span>" + "<strong>Bevolkingsaantal:</strong> <span style='color:red'>" + d["Bevolking naar geslacht/Totale bevolking (aantal)"] + "</span>";
-                })
+                  .attr('class', 'd3-tip')
+                  .offset([10, 50])
+                  .html( function(d) {
+                    return "<strong>Jaar:</strong> <span style='color:red'>" + d["Perioden"] + "\n" + "</span>" + "<strong>Bevolkingsaantal:</strong> <span style='color:red'>" + d["Bevolking naar geslacht/Totale bevolking (aantal)"] + "</span>";
+                  })
 
             // create svg element to draw bar chart in
             var svg = d3.select("body")
-                    .append("svg")
-                    .attr("width", 900)
-                    .attr("height", 210)
+                  .append("svg")
+                  .attr("width", 900)
+                  .attr("height", 210)
 
             // call tooltip
             svg.call(tip);
@@ -80,18 +80,18 @@
 
               // create scale for bars
               var scale = d3.scale.linear()
-                      .domain([0, d3.max(data.data, function(d) {return d["Bevolking naar geslacht/Totale bevolking (aantal)"]; })])
-                      .range([0, 180]);
+                  .domain([0, d3.max(data.data, function(d) {return d["Bevolking naar geslacht/Totale bevolking (aantal)"]; })])
+                  .range([0, 180]);
 
               // create scale for x-axis
               var xscale = d3.scale.linear()
-                      .domain([1980, 2015])
-                      .range([160, 445]);
+                  .domain([1980, 2015])
+                  .range([160, 445]);
 
               // create scale for y-axis
               var yscale = d3.scale.linear()
-                      .domain([d3.max(data.data, function(d) {return d["Bevolking naar geslacht/Totale bevolking (aantal)"] / 1000000}), 0])
-                      .range([0, 180]);
+                  .domain([d3.max(data.data, function(d) {return d["Bevolking naar geslacht/Totale bevolking (aantal)"] / 1000000}), 0])
+                  .range([0, 180]);
 
               // create x-axis
               var xAxis = d3.svg.axis()
@@ -122,43 +122,43 @@
 
               // create bar for each data-element
               svg.selectAll(".bar")
-                .data(data.data)
-                .enter()
-                .append("rect")
-                .attr("class", "bar")
-                .attr("x", function(d, i) {
-                    return (i * 40) + 25;
-                 })
-                .attr("y", function (d) {
-                  return 180  - scale(d["Bevolking naar geslacht/Totale bevolking (aantal)"]);
-                })
-                .attr("width", function(d) {
-                    return 35;
-                })
-                .attr("height", function(d){
-                  return scale(d["Bevolking naar geslacht/Totale bevolking (aantal)"]);
-                })
-                .attr("stroke", "orange")
-                .attr("stroke-width", function(d) {
-                   return d/2;
-                 })
-                 // show tooltip when mouseover
-                .on('mouseover', tip.show)
-                .on('mouseout', tip.hide);
-                 });
+                  .data(data.data)
+                  .enter()
+                  .append("rect")
+                  .attr("class", "bar")
+                  .attr("x", function(d, i) {
+                      return (i * 40) + 25;
+                   })
+                  .attr("y", function (d) {
+                    return 180  - scale(d["Bevolking naar geslacht/Totale bevolking (aantal)"]);
+                  })
+                  .attr("width", function(d) {
+                      return 35;
+                  })
+                  .attr("height", function(d){
+                    return scale(d["Bevolking naar geslacht/Totale bevolking (aantal)"]);
+                  })
+                  .attr("stroke", "orange")
+                  .attr("stroke-width", function(d) {
+                     return d/2;
+                   })
+                   // show tooltip when mouseover
+                  .on('mouseover', tip.show)
+                  .on('mouseout', tip.hide);
+                   });
 
             // set title
             d3.select("head")
-                .append("title")
-                .text("Bevolking in Nederland!");
+                  .append("title")
+                  .text("Bevolking in Nederland!");
 
             // information and project description
             d3.select("body")
-                .append("p")
-                .text("D3 visualisatie, Mark van den Hoven 10533133")
-                .append("p")
-                .text("Bevolking van Nederland in miljoenen, periode 1960 - 2017," +
-                " bron: https://www.cbs.nl/nl-nl/cijfers.");
+                  .append("p")
+                  .text("D3 visualisatie, Mark van den Hoven 10533133")
+                  .append("p")
+                  .text("Bevolking van Nederland in miljoenen, periode 1960 - 2017," +
+                  " bron: https://www.cbs.nl/nl-nl/cijfers.");
 
       </script>
       </body>
