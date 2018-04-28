@@ -55,26 +55,26 @@
 
       <script type="text/javascript">
 
-            // create tooltip for hoovering
-            // http://bl.ocks.org/Caged/6476579
-            var tip = d3.tip()
+              // create tooltip for hoovering
+              // http://bl.ocks.org/Caged/6476579
+              var tip = d3.tip()
                   .attr('class', 'd3-tip')
                   .offset([10, 50])
                   .html( function(d) {
                     return "<strong>Jaar:</strong> <span style='color:red'>" + d["Perioden"] + "\n" + "</span>" + "<strong>Bevolkingsaantal:</strong> <span style='color:red'>" + d["Bevolking naar geslacht/Totale bevolking (aantal)"] + "</span>";
                   })
 
-            // create svg element to draw bar chart in
-            var svg = d3.select("body")
+              // create svg element to draw bar chart in
+              var svg = d3.select("body")
                   .append("svg")
                   .attr("width", 900)
                   .attr("height", 210)
 
-            // call tooltip
-            svg.call(tip);
+              // call tooltip
+              svg.call(tip);
 
-            // read into JSON file
-            d3.json("bevolking.json", function(error, data) {
+              // read into JSON file
+              d3.json("bevolking.json", function(error, data) {
               // check if no error
               if (error) throw error;
 
