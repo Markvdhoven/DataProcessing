@@ -4,4 +4,4 @@
 
 Assignments for the UvA-course **'DataProcessing'**
 
-**Github page:**  http://htmlpreview.github.io/?https://markvdhoven.github.io/DataProcessing/
+**Github page:**  http(s)://Markvdhoven.github.io/index.html
