@@ -38,11 +38,11 @@ function makeScatter2014(error, response) {
 
   // make dictionairy of minimum wages
   for (var country = 0; country < 25; country++){
-      observation = country + ":" + 4 + ":0:0"
-      dictMinWage.push({
-        "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
-        "Wage" : minWage.dataSets[0].observations[observation][0]
-      })
+    observation = country + ":" + 4 + ":0:0"
+    dictMinWage.push({
+      "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
+      "Wage" : minWage.dataSets[0].observations[observation][0]
+    })
   }
 
   dictTotWaste = []
@@ -52,12 +52,12 @@ function makeScatter2014(error, response) {
 
   // make dictionairy of total amount of waste generated
   for (var country = 0; country < 31; country++){
-      observation = country + ":17:" + 2
-      if (totWaste.dataSets[0].observations[observation] != undefined){
-        dictTotWaste.push({
-          "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
-          "Waste": totWaste.dataSets[0].observations[observation][0]
-        })
+    observation = country + ":17:" + 2
+    if (totWaste.dataSets[0].observations[observation] != undefined){
+      dictTotWaste.push({
+        "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
+        "Waste": totWaste.dataSets[0].observations[observation][0]
+      })
     }
   }
 
@@ -86,8 +86,8 @@ function makeScatter2014(error, response) {
 
   // create margin for scatterplot
   var margin = {top: 20, right: 30, bottom: 30, left: 30},
-    width = 1000 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+      width = 1000 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
   // create different colours for each country
   var cValue = function(d) { return d.country;},
@@ -109,19 +109,19 @@ function makeScatter2014(error, response) {
 
   // create x-axis
   var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
+      .scale(x)
+      .orient("bottom");
 
   // create y-axis
   var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left");
+      .scale(y)
+      .orient("left");
 
   // create a svg element to draw scatter plot in
   var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
 
   // create scatterplot title
   svg.append("text")
@@ -206,11 +206,11 @@ function makeScatter2016(error, response){
 
   // make dictionairy of minimum wages
   for (var country = 0; country < 25; country++){
-      observation = country + ":" + 6 + ":0:0"
-      dictMinWage.push({
-        "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
-        "Wage" : minWage.dataSets[0].observations[observation][0]
-      })
+    observation = country + ":" + 6 + ":0:0"
+    dictMinWage.push({
+      "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
+      "Wage" : minWage.dataSets[0].observations[observation][0]
+    })
   }
 
   dictTotWaste = []
@@ -218,12 +218,12 @@ function makeScatter2016(error, response){
   // make dictionairy of total amount of waste generated
   totWaste = JSON.parse(response[1].responseText)
   for (var country = 0; country < 31; country++){
-      observation = country + ":17:" + 3
-      if (totWaste.dataSets[0].observations[observation] != undefined){
-        dictTotWaste.push({
-          "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
-          "Waste": totWaste.dataSets[0].observations[observation][0]
-        })
+    observation = country + ":17:" + 3
+    if (totWaste.dataSets[0].observations[observation] != undefined){
+      dictTotWaste.push({
+        "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
+        "Waste": totWaste.dataSets[0].observations[observation][0]
+      })
     }
   }
 
@@ -257,103 +257,103 @@ function makeScatter2016(error, response){
 
   // create different colours for each country
   var cValue = function(d) { return d.country;},
-      color = d3.scale.category10();
+    color = d3.scale.category10();
 
   // create scale for x-axis
   var x = d3.scale.linear()
-      .range([80, width - 200])
+    .range([80, width - 200])
 
-      // create domain by taking maximum off data
-      .domain(d3.extent(dictMinWageTotWaste, function(d) { return d.Waste; })).nice();
+    // create domain by taking maximum off data
+    .domain(d3.extent(dictMinWageTotWaste, function(d) { return d.Waste; })).nice();
 
   // create scale for y-axis
   var y = d3.scale.linear()
-      .range([height, 10])
+    .range([height, 10])
 
-      // create domain by taking maximum off data
-      .domain(d3.extent(dictMinWageTotWaste, function(d) { return d.Wage; })).nice();
+    // create domain by taking maximum off data
+    .domain(d3.extent(dictMinWageTotWaste, function(d) { return d.Wage; })).nice();
 
   // create x-axis
   var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
+    .scale(x)
+    .orient("bottom");
 
   // create y-axis
   var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left");
+    .scale(y)
+    .orient("left");
 
   // create a svg element to draw scatter plot in
   var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
 
   // create scatterplot title
   svg.append("text")
-      .attr("class", "label")
-      .attr("font-size","18px")
-      .attr("x", width - 200)
-      .attr("y", 20)
-      .style("text-anchor", "end")
-      .text("Waste generated vs minimal wage 2016");
+    .attr("class", "label")
+    .attr("font-size","18px")
+    .attr("x", width - 200)
+    .attr("y", 20)
+    .style("text-anchor", "end")
+    .text("Waste generated vs minimal wage 2016");
 
   // create x-axis with lable
   svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-      .append("text")
-      .attr("class", "label")
-      .attr("font-size","12px")
-      .attr("x", width - 200)
-      .attr("y", -10)
-      .style("text-anchor", "end")
-      .text("Amount of waste generated per year (tons)");
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+    .append("text")
+    .attr("class", "label")
+    .attr("font-size","12px")
+    .attr("x", width - 200)
+    .attr("y", -10)
+    .style("text-anchor", "end")
+    .text("Amount of waste generated per year (tons)");
 
   // create y-axis with lable
   svg.append("g")
-      .attr("class", "y axis")
-      .attr("transform", "translate(60, 0)")
-      .call(yAxis)
-      .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("font-size","12px")
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Minumum wages (Annual, US dollar)")
+    .attr("class", "y axis")
+    .attr("transform", "translate(60, 0)")
+    .call(yAxis)
+    .append("text")
+    .attr("class", "label")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("font-size","12px")
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Minumum wages (Annual, US dollar)")
 
   // for each country create circle with corresponding colour
   svg.selectAll(".dot")
-      .data(dictMinWageTotWaste)
-      .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", function(d) { return x(d.Waste); })
-      .attr("cy", function(d) { return y(d.Wage); })
-      .style("fill", function(d) { return color(cValue(d));})
+    .data(dictMinWageTotWaste)
+    .enter().append("circle")
+    .attr("class", "dot")
+    .attr("r", 3.5)
+    .attr("cx", function(d) { return x(d.Waste); })
+    .attr("cy", function(d) { return y(d.Wage); })
+    .style("fill", function(d) { return color(cValue(d));})
 
   // create legend
   var legend = svg.selectAll(".legend")
-      .data(dictMinWageTotWaste, function(d) {return d.country; })
-      .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    .data(dictMinWageTotWaste, function(d) {return d.country; })
+    .enter().append("g")
+    .attr("class", "legend")
+    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   // make a rectangle for each country with according colour
   legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", function(d) {return color(d.country)});
+    .attr("x", width - 18)
+    .attr("width", 18)
+    .attr("height", 18)
+    .style("fill", function(d) {return color(d.country)});
 
   // append to each rectangle the country name
   legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d.country; })
+    .attr("x", width - 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "end")
+    .text(function(d) { return d.country; })
 };
