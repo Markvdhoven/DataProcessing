@@ -37,8 +37,10 @@ function makeScatter2014(error, response) {
   minWage = JSON.parse(response[0].responseText)
 
   // make dictionairy of minimum wages
-  for (var country = 0; country < 25; country++){
-    observation = country + ":" + 4 + ":0:0"
+  amountOfCountries = 25
+  for (var country = 0; country < amountOfCountries; country++){
+    loc2014 = 4
+    observation = country + ":" + loc2014 + ":0:0"
     dictMinWage.push({
       "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
       "Wage" : minWage.dataSets[0].observations[observation][0]
@@ -51,8 +53,10 @@ function makeScatter2014(error, response) {
   totWaste = JSON.parse(response[1].responseText)
 
   // make dictionairy of total amount of waste generated
-  for (var country = 0; country < 31; country++){
-    observation = country + ":17:" + 2
+  amountOfCountries = 31
+  for (var country = 0; country < amountOfCountries; country++){
+    loc2014 = 2
+    observation = country + ":17:" + loc2014
     if (totWaste.dataSets[0].observations[observation] != undefined){
       dictTotWaste.push({
         "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
@@ -141,7 +145,7 @@ function makeScatter2014(error, response) {
       .attr("class", "label")
       .attr("font-size","12px")
       .attr("x", width - 200)
-      .attr("y", -10)
+      .attr("y", - 10)
       .style("text-anchor", "end")
       .text("Amount of waste generated per year (tons)");
 
@@ -205,8 +209,10 @@ function makeScatter2016(error, response){
   minWage = JSON.parse(response[0].responseText)
 
   // make dictionairy of minimum wages
-  for (var country = 0; country < 25; country++){
-    observation = country + ":" + 6 + ":0:0"
+  amountOfCountries = 25
+  for (var country = 0; country < amountOfCountries; country++){
+    loc2016 = 6
+    observation = country + ":" + loc2016 + ":0:0"
     dictMinWage.push({
       "Country" : minWage.structure.dimensions.observation[0].values[country]["name"],
       "Wage" : minWage.dataSets[0].observations[observation][0]
@@ -216,9 +222,11 @@ function makeScatter2016(error, response){
   dictTotWaste = []
 
   // make dictionairy of total amount of waste generated
+  amountOfCountries = 31
   totWaste = JSON.parse(response[1].responseText)
-  for (var country = 0; country < 31; country++){
-    observation = country + ":17:" + 3
+  for (var country = 0; country < amountOfCountries; country++){
+    loc2016 = 3
+    observation = country + ":17:" + loc2016
     if (totWaste.dataSets[0].observations[observation] != undefined){
       dictTotWaste.push({
         "Country": totWaste.structure.dimensions.observation[0].values[country]["name"],
