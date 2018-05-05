@@ -95,7 +95,7 @@ function makeScatter2014(error, response) {
 
   // create different colours for each country
   var cValue = function(d) { return d.country;},
-      color = d3.scale.category10();
+      color = d3.scale.category20b();
 
   // create scale for x-axis
   var x = d3.scale.linear()
@@ -265,7 +265,7 @@ function makeScatter2016(error, response){
 
   // create different colours for each country
   var cValue = function(d) { return d.country;},
-    color = d3.scale.category10();
+    color = d3.scale.category20b();
 
   // create scale for x-axis
   var x = d3.scale.linear()
