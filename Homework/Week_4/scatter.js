@@ -1,8 +1,8 @@
 function update2014(error, response) {
 
   // getting API data from stats.eocd.org
-  var minimumWages = "http://stats.oecd.org/SDMX-JSON/data/RMW/AUS+BEL+CAN+CHL+CZE+EST+FRA+DEU+GRC+HUN+IRL+ISR+JPN+KOR+LVA+LUX+MEX+NLD+NZL+POL+PRT+SVK+SVN+ESP+TUR+GBR+USA+COL+CRI+LTU+BRA+RUS.EXR+PPP.H+A/all?startTime=2000&endTime=2016&dimensionAtObservation=allDimensions"
-  var waste = "http://stats.oecd.org/SDMX-JSON/data/WSECTOR/AUS+AUT+BEL+CHL+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LUX+NLD+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+NMEC+COL+LTU.TOTAL_S+RES+TOTAL+01-03+01+05-09+10-33+10-12+13-15+16+17-18+19+20-22+23+24-33+24+24-25+25-28+26-30+29-33+31-33+35+36-39+41-43+45-98+INTENSITY+INT_CAPITA+INT_GDP+INT_CONS/all?startTime=1990&endTime=2015&dimensionAtObservation=allDimensions"
+  var minimumWages = "https://stats.oecd.org/SDMX-JSON/data/RMW/AUS+BEL+CAN+CHL+CZE+EST+FRA+DEU+GRC+HUN+IRL+ISR+JPN+KOR+LVA+LUX+MEX+NLD+NZL+POL+PRT+SVK+SVN+ESP+TUR+GBR+USA+COL+CRI+LTU+BRA+RUS.EXR+PPP.H+A/all?startTime=2000&endTime=2016&dimensionAtObservation=allDimensions"
+  var waste = "https://stats.oecd.org/SDMX-JSON/data/WSECTOR/AUS+AUT+BEL+CHL+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LUX+NLD+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+NMEC+COL+LTU.TOTAL_S+RES+TOTAL+01-03+01+05-09+10-33+10-12+13-15+16+17-18+19+20-22+23+24-33+24+24-25+25-28+26-30+29-33+31-33+35+36-39+41-43+45-98+INTENSITY+INT_CAPITA+INT_GDP+INT_CONS/all?startTime=1990&endTime=2015&dimensionAtObservation=allDimensions"
 
   // put links in a queue and make scatter of both data
   d3.queue()
@@ -14,8 +14,8 @@ function update2014(error, response) {
 function update2016(error, response) {
 
   // getting API data from stats.eocd.org
-  var minimumWages = "http://stats.oecd.org/SDMX-JSON/data/RMW/AUS+BEL+CAN+CHL+CZE+EST+FRA+DEU+GRC+HUN+IRL+ISR+JPN+KOR+LVA+LUX+MEX+NLD+NZL+POL+PRT+SVK+SVN+ESP+TUR+GBR+USA+COL+CRI+LTU+BRA+RUS.EXR+PPP.H+A/all?startTime=2000&endTime=2016&dimensionAtObservation=allDimensions"
-  var waste = "http://stats.oecd.org/SDMX-JSON/data/WSECTOR/AUS+AUT+BEL+CHL+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LUX+NLD+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+NMEC+COL+LTU.TOTAL_S+RES+TOTAL+01-03+01+05-09+10-33+10-12+13-15+16+17-18+19+20-22+23+24-33+24+24-25+25-28+26-30+29-33+31-33+35+36-39+41-43+45-98+INTENSITY+INT_CAPITA+INT_GDP+INT_CONS/all?startTime=1990&endTime=2015&dimensionAtObservation=allDimensions"
+  var minimumWages = "https://stats.oecd.org/SDMX-JSON/data/RMW/AUS+BEL+CAN+CHL+CZE+EST+FRA+DEU+GRC+HUN+IRL+ISR+JPN+KOR+LVA+LUX+MEX+NLD+NZL+POL+PRT+SVK+SVN+ESP+TUR+GBR+USA+COL+CRI+LTU+BRA+RUS.EXR+PPP.H+A/all?startTime=2000&endTime=2016&dimensionAtObservation=allDimensions"
+  var waste = "https://stats.oecd.org/SDMX-JSON/data/WSECTOR/AUS+AUT+BEL+CHL+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LUX+NLD+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+NMEC+COL+LTU.TOTAL_S+RES+TOTAL+01-03+01+05-09+10-33+10-12+13-15+16+17-18+19+20-22+23+24-33+24+24-25+25-28+26-30+29-33+31-33+35+36-39+41-43+45-98+INTENSITY+INT_CAPITA+INT_GDP+INT_CONS/all?startTime=1990&endTime=2015&dimensionAtObservation=allDimensions"
 
   // put links in a queue and make scatter of both data
   d3.queue()
