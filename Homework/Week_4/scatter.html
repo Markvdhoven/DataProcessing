@@ -11,30 +11,24 @@
   <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
   <script src="https://d3js.org/d3-request.v1.min.js"></script>
   <script src="scatter.js"></script>
-
-
- <!-- https://bl.ocks.org/mbostock/3887118 -->
-<style>
-{
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.dot {
-  stroke: "black";
-}
-</style>
+<link rel="stylesheet" type="text/css" href="scatter.css">
 </head>
-
 <body>
-  <script>
 
-  </script>
+<!-- button for 2014 data -->
+<div id="option1">
+    <input name="updateButton"
+           type="button"
+           value="2014"
+           onclick="update2014()" />
+</div>
+
+<!-- button for 2016 data -->
+<div id="option2">
+    <input name="updateButton"
+           type="button"
+           value="2016"
+           onclick="update2016()" />
+</div>
 </body>
 </html>
