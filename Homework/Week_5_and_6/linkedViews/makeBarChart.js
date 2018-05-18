@@ -103,6 +103,7 @@ function createAxis(svg, countryList, xscale){
 * function which makes barchart bars
 **/
 function createBars(svg, countryList, xscale){
+  
   // create tooltip for hoovering
   // http://bl.ocks.org/Caged/6476579
   var tip = d3.tip()
