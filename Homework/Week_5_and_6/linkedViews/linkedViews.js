@@ -5,8 +5,8 @@
 
 // put json files in queue
 d3.queue()
-  .defer(d3.json, "countryinfo.json")
-  .defer(d3.json, "wellbeing.json")
+  .defer(d3.json, "linkedViews/countryinfo.json")
+  .defer(d3.json, "linkedViews/wellbeing.json")
   .awaitAll(Visualize);
 
 /*
