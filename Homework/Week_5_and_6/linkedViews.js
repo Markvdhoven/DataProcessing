@@ -3,8 +3,6 @@
 * Main page where complete visualisation is made
 **/
 
-from Week_5_and_6 import Datamaps
-
 // put json files in queue
 d3.queue()
   .defer(d3.json, "countryinfo.json")
