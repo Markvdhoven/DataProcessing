@@ -21,7 +21,7 @@ function makeBarchart(error, response, datamap){
       var svg = createSVG()
 
       // read into json file
-      d3.json("countryinfo.json", function(error, data) {
+      d3.json("linkedViews/countryinfo.json", function(error, data) {
 
         // make info array for given country
         var countryList = makeCountryInfo(data, geography);
